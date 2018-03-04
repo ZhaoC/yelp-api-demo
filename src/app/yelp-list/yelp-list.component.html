@@ -1,0 +1,37 @@
+<mat-spinner [style.display]="isVisible ? 'block' : 'none'"></mat-spinner>
+
+<mat-tab-group [style.display]="isVisible ? 'none' : 'block'">
+  <mat-tab label="Restaurants">    
+    <mat-list>
+      <mat-list-item *ngFor="let restaurant of restaurants">
+        <mat-icon mat-list-icon><img [src]= "restaurant.image_url" ></mat-icon>
+        <h4 mat-line>{{restaurant.name}} </h4>
+        <p style="color:rgb(139, 143, 165)" mat-line> {{restaurant.location.display_address.join(' ')}} </p>
+        <p style="color:rgb(54, 180, 230)" mat-line> {{restaurant.phone}} </p>
+
+        <!-- pass in the store id when open dislog -->
+        Rating<button mat-icon-button (click)="openDialog(restaurant.id)" color="accent" >
+            <mat-icon aria-label="rating icon">star</mat-icon>
+        </button>
+      </mat-list-item>      
+    </mat-list>
+  </mat-tab>
+  
+  <mat-tab label="Grocery Stores">
+    <mat-list>
+        <mat-list-item *ngFor="let groceryStore of groceryStores">
+          <mat-icon mat-list-icon><img [src]= "groceryStore.image_url" ></mat-icon>
+          <h4 mat-line>{{groceryStore.name}}</h4>
+          <p style="color:rgb(139, 143, 165)" mat-line> {{groceryStore.location.display_address.join(' ')}} </p>
+          <p style="color:rgb(54, 180, 230)" mat-line> {{groceryStore.phone}} </p>
+
+          <!-- pass in the store id when open dislog -->
+          Rating<button mat-icon-button (click)="openDialog(groceryStore.id)" color="accent">
+            <mat-icon aria-label="rating icon">star</mat-icon>
+          </button>
+          <mat-divider></mat-divider>
+        </mat-list-item>
+        <mat-divider></mat-divider>
+      </mat-list>
+  </mat-tab>
+</mat-tab-group>
