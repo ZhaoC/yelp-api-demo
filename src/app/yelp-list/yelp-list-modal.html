@@ -4,9 +4,8 @@
         <img [src]= "data.clickedStore.image_url" style="width: 200px; border-radius: 5px;" >
         <h4 style="color:rgb(12, 90, 126)" mat-line> {{data.clickedStore.location.display_address.join(' ')}} </h4>
         <h4 style="color:rgb(177, 7, 7)" mat-line>Rating: {{data.clickedStore.rating}} </h4>
-        
+        <!-- a link to store website -->
         <a mat-raised-button [href]= "data.clickedStore.url" target="_blank">Website</a>
-    
         <br>
         <mat-divider></mat-divider>
     </div>

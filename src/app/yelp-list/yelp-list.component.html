@@ -2,14 +2,15 @@
 
 <mat-tab-group [style.display]="isVisible ? 'none' : 'block'">
   <mat-tab label="Restaurants">    
+    <!-- using mat list to show Restaurants retrieved -->
     <mat-list>
       <mat-list-item *ngFor="let restaurant of restaurants">
         <mat-icon mat-list-icon><img [src]= "restaurant.image_url" ></mat-icon>
         <h4 mat-line>{{restaurant.name}} </h4>
+        <!-- using join() to dislay the full address -->
         <p style="color:rgb(139, 143, 165)" mat-line> {{restaurant.location.display_address.join(' ')}} </p>
         <p style="color:rgb(54, 180, 230)" mat-line> {{restaurant.phone}} </p>
-
-        <!-- pass in the store id when open dislog -->
+        <!-- pass in the store id when invoke openDialog() -->
         Rating<button mat-icon-button (click)="openDialog(restaurant.id)" color="accent" >
             <mat-icon aria-label="rating icon">star</mat-icon>
         </button>
@@ -18,14 +19,15 @@
   </mat-tab>
   
   <mat-tab label="Grocery Stores">
+    <!-- using mat list to show groceryStores retrieved -->
     <mat-list>
         <mat-list-item *ngFor="let groceryStore of groceryStores">
           <mat-icon mat-list-icon><img [src]= "groceryStore.image_url" ></mat-icon>
           <h4 mat-line>{{groceryStore.name}}</h4>
+          <!-- using join() to dislay the full address -->
           <p style="color:rgb(139, 143, 165)" mat-line> {{groceryStore.location.display_address.join(' ')}} </p>
           <p style="color:rgb(54, 180, 230)" mat-line> {{groceryStore.phone}} </p>
-
-          <!-- pass in the store id when open dislog -->
+          <!-- pass in the store id when invoke openDialog()-->
           Rating<button mat-icon-button (click)="openDialog(groceryStore.id)" color="accent">
             <mat-icon aria-label="rating icon">star</mat-icon>
           </button>

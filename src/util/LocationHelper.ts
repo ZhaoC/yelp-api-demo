@@ -5,10 +5,12 @@ export class LocationHelper {
       return;
     }
   
+    // set resolve for promise
     function resolve(position) {      
       return position;
     }
   
+    // set rejecte for promise
     function reject() {
       console.log('Unable to retrieve your location');
     }

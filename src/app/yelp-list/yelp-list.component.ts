@@ -15,14 +15,13 @@ export class YelpListComponent implements OnInit {
 
   restaurants = [];
   groceryStores = [];
-  concatStore = []; //merge of to type
+  concatStore = []; //merge of restaurants and groceryStores
 
-  // set for spniner visability
-  isVisible = true;
+  isVisible = true; // set for spinner visability
 
   id:string;
   name:string;
-  clickedStore = {};
+  clickedStore = {};  // data will be used by modal
   
   constructor(private http: HttpClient, public dialog: MatDialog) { }
 
@@ -31,13 +30,13 @@ export class YelpListComponent implements OnInit {
       this.groceryStores = await YelpHelper.getYelpSiteData(this.http, "groceryStores"); //get grocery stores content for current location
 
       this.isVisible = false; //set spinner visibility after data load properly
-
       this.concatStore = this.restaurants.concat(this.groceryStores);
   }
 
   openDialog(id): void {
     console.log('concatStore',this.concatStore);
-    // set clicked store
+
+    // set clicked store based on store ID
     this.clickedStore = this.concatStore.filter( (item)=>{
       return item['id'] === id;
     })[0];
@@ -53,13 +52,13 @@ export class YelpListComponent implements OnInit {
       // this.restaurant = result;
     });
   }
-
 }
 
 @Component({
   selector: 'yelp-list-modal',
   templateUrl: 'yelp-list-modal.html',
 })
+
 export class YelpListModal {
 
   constructor(
