@@ -5,6 +5,8 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 ## Live Demo
 [Heroku Live Server](https://nodejs-demo-server.herokuapp.com/)
 
+[Server Implementation Source Code](https://github.com/ZhaoC/nodejs-demo-server)
+
 ## References
 * [Angular CLI wiki](https://github.com/angular/angular-cli/wiki)
 * [Official Guide](https://angular.io/guide/quickstart)
